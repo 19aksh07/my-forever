@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    base: mode === 'development' ? '/' : '/my-forever/',
   },
   plugins: [
     react(),
