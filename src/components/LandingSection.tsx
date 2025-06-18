@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { Heart } from 'lucide-react';
+import React from "react";
+import { Heart } from "lucide-react";
 
 const LandingSection = () => {
   return (
@@ -21,16 +20,16 @@ const LandingSection = () => {
           <p className="text-xl md:text-2xl text-rose-100/80 font-light leading-relaxed font-['Cormorant_Garamond'] italic">
             This is for the one who made darkness beautiful...
           </p>
-          <p className="text-lg md:text-xl text-amber-300/70 mt-4 font-['Cormorant_Garamond']">
-            A collection of words that whisper what my heart cannot say aloud.
+          <p className="text-xl md:text-2xl text-rose-100/80 font-light leading-relaxed font-['Cormorant_Garamond'] italic">
+            ...and the light even more radiant.
           </p>
         </div>
 
         {/* Decorative heart */}
         <div className="flex justify-center mb-8">
-          <Heart 
-            size={48} 
-            className="text-pink-400 animate-pulse" 
+          <Heart
+            size={48}
+            className="text-pink-400 animate-pulse"
             fill="currentColor"
           />
         </div>
@@ -40,18 +39,20 @@ const LandingSection = () => {
           <p className="text-rose-200/60 text-sm md:text-base font-['Playfair_Display']">
             Scroll to discover our story in verse
           </p>
-          <div className="mt-4 text-pink-400">
-            ↓
-          </div>
+          <div className="mt-4 text-pink-400">↓</div>
         </div>
       </div>
 
       {/* Decorative elements */}
       <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-pink-400 rounded-full animate-ping opacity-60" />
-      <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-40" 
-           style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 left-1/6 w-1.5 h-1.5 bg-amber-400 rounded-full animate-ping opacity-50" 
-           style={{ animationDelay: '2s' }} />
+      <div
+        className="absolute top-3/4 right-1/4 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-40"
+        style={{ animationDelay: "1s" }}
+      />
+      <div
+        className="absolute top-1/2 left-1/6 w-1.5 h-1.5 bg-amber-400 rounded-full animate-ping opacity-50"
+        style={{ animationDelay: "2s" }}
+      />
     </section>
   );
 };

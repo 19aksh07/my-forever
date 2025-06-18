@@ -1,7 +1,6 @@
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import QuoteCard from './QuoteCard';
-
 interface Quote {
   quote: string;
   author: string;
@@ -14,7 +13,7 @@ const QuotesSection = () => {
   useEffect(() => {
     const loadQuotes = async () => {
       try {
-        const response = await fetch('/quotes.json');
+        const response = await fetch('../../public/quotes.json');
         const data = await response.json();
         setQuotes(data);
       } catch (error) {
