@@ -1,0 +1,301 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom romantic styles with darker, more elegant theme */
+.romantic-bg {
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 15%, #1a0d1a 35%, #2d1b2e 55%, #1a0d1a 75%, #000000 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 25s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.romantic-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.08) 0%, transparent 60%),
+              radial-gradient(circle at 75% 75%, rgba(128, 0, 128, 0.12) 0%, transparent 60%),
+              radial-gradient(circle at 50% 10%, rgba(220, 20, 60, 0.06) 0%, transparent 70%),
+              radial-gradient(circle at 10% 90%, rgba(75, 0, 130, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.romantic-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(0, 0, 0, 0.3) 0%, 
+    transparent 25%, 
+    transparent 75%, 
+    rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  33% { background-position: 100% 0%; }
+  66% { background-position: 0% 100%; }
+}
+
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  color: #dc143c;
+  font-size: 1rem;
+  opacity: 0.2;
+  animation: float 18s infinite linear;
+  filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.3));
+}
+
+.heart:nth-child(odd) {
+  animation-delay: -9s;
+  color: #8b008b;
+  filter: drop-shadow(0 0 10px rgba(139, 0, 139, 0.3));
+}
+
+.heart:nth-child(3n) {
+  animation-delay: -4s;
+  color: #4b0082;
+  filter: drop-shadow(0 0 10px rgba(75, 0, 130, 0.3));
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 20, 60, 0.6) 0%, rgba(139, 0, 139, 0.3) 50%, transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.1s ease;
+  box-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
+}
+
+.quote-card {
+  backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(220, 20, 60, 0.15);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.quote-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  background: rgba(0, 0, 0, 0.6);
+  border-color: rgba(220, 20, 60, 0.4);
+  box-shadow: 0 25px 50px rgba(220, 20, 60, 0.15), 0 0 40px rgba(139, 0, 139, 0.1);
+}
+
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.romantic-title {
+  background: linear-gradient(135deg, #ffd700, #ff6b6b, #dc143c, #8b008b, #4b0082);
+  background-size: 300% 300%;
+  animation: gradient-shift 10s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-text {
+  text-shadow: 0 0 30px rgba(220, 20, 60, 0.6),
+               0 0 60px rgba(139, 0, 139, 0.4),
+               0 0 90px rgba(75, 0, 130, 0.3);
+}
+
+/* Enhanced starfield animation */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: linear-gradient(45deg, #ffffff, #ffd700, #ffb6c1);
+  border-radius: 50%;
+  animation: twinkle 5s infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.star:nth-child(odd) {
+  animation-delay: -2.5s;
+}
+
+.star:nth-child(3n) {
+  animation-delay: -1.5s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Enhanced scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #dc143c, #8b008b, #4b0082);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ff1e4d, #a020f0, #6a0dad);
+  box-shadow: 0 0 15px rgba(220, 20, 60, 0.8);
+}
